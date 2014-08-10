@@ -7,62 +7,39 @@
 domain = 'local'
 nodes = [
   {
-    :hostname => 'master',
-    :ip => '192.168.1.52',
-    :box => 'precise32',
-    :ram => 1024,
-    :facts => {
-      "vagrant" => "1",
-      "jenkins_role" => "master"
-    }
+    :hostname  => 'master',
+    :ip        => '192.168.1.52',
+    :provision => "puppet/provision/master.sh",
   },{
-    :hostname => 'slave1',
-    :ip => '192.168.1.53',
-    :box => 'precise32',
-    :ram => 1024,
-    :facts => {
-      "vagrant" => "1",
-      "jenkins_role" => "slave",
-      "jenkins_master" => "192.168.1.52"
-    }
-  },{
-    :hostname => 'slave2',
-    :ip => '192.168.1.54',
-    :box => 'precise32',
-    :ram => 1024,
-    :facts => {
-      "vagrant" => "1",
-      "jenkins_role" => "slave",
-      "jenkins_master" => "192.168.1.52"
-    }
+    :hostname  => 'slave1',
+    :ip        => '192.168.1.53',
+    :provision => "puppet/provision/slave.sh",
   }
 ]
 
 Vagrant.configure("2") do |config|
   nodes.each do |node|
     config.vm.define node[:hostname] do |node_config|
-      node_config.vm.box = 'precise64'
-      node_config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
+      # Image.
+      node_config.vm.box = 'puppetlabs/centos-6.5-64-puppet'
+
+      # Networking.
       node_config.vm.host_name = node[:hostname] + '.local'
       node_config.vm.network :private_network, :ip => node[:ip]
 
-      memory = node[:ram] ? node[:ram] : 256;
+      # Resources.
+      memory = node[:ram] ? node[:ram] : 1024;
       node_config.vm.provider :virtualbox do |vb|
         vb.customize ["modifyvm", :id, "--name", node[:hostname]]
         vb.customize ["modifyvm", :id, "--memory", memory.to_s]
       end
 
+      # Mounts.
       config.vm.synced_folder ".", "/vagrant"
 
-      config.vm.provision "shell", path: "puppet/provision.sh"
-      node_config.vm.provision :puppet do |puppet|
-        puppet.manifests_path = 'puppet'
-        puppet.manifest_file = 'site.pp'
-        puppet.module_path = 'puppet/modules'
-        puppet.hiera_config_path = "puppet/etc/hiera.yaml"
-        puppet.working_directory = "/vagrant/puppet"
-        puppet.facter = node[:facts]
-      end
+      # Puppet.
+      node_config.vm.provision "shell", path: "puppet/provision/base.sh"
+      node_config.vm.provision "shell", path: node[:provision]
     end
   end
 end
