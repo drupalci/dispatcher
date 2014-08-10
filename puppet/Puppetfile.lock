@@ -4,8 +4,7 @@ FORGE
     darin/zypprepo (1.0.1)
     puppetlabs/java (1.1.1)
       puppetlabs/stdlib (>= 0.1.6)
-    puppetlabs/stdlib (4.2.1)
-    stahnma/epel (0.0.6)
+    puppetlabs/stdlib (4.3.2)
 
 GIT
   remote: git://github.com/jenkinsci/puppet-jenkins.git
@@ -66,6 +65,13 @@ GIT
     saz/timezone (3.0.1)
       puppetlabs/stdlib (>= 2.3.0)
 
+GIT
+  remote: git://github.com/stahnma/puppet-module-epel.git
+  ref: 0.1.0
+  sha: 5902e8d77df713fe85468c7b082a7f9798daa40a
+  specs:
+    stahnma/epel (0.1.0)
+
 DEPENDENCIES
   mjhas/postfix (>= 0)
   nickschuch/docker (>= 0)
@@ -74,4 +80,5 @@ DEPENDENCIES
   rtyler/jenkins (>= 0)
   saz/locales (>= 0)
   saz/timezone (>= 0)
+  stahnma/epel (>= 0)
 

@@ -3,7 +3,7 @@
   - yaml
 
 :hierarchy:
-  - "nodes/%{::jenkins_role}"
+  - "type/%{::jenkins_role}"
   - common
 
 :yaml:
