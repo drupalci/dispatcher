@@ -35,7 +35,13 @@ A local environment can be setup with Vagrant using the following command:
 vagrant up
 ```
 
-Note: See the Vagrantfile for IP's and conifguration.
+Note: Go get a coffee, this might take a little while.
+
+Go to the following URL:
+
+```
+http://master.local
+```
 
 #### Deploy.
 
