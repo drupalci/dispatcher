@@ -72,9 +72,15 @@ GIT
   specs:
     stahnma/epel (0.1.0)
 
+PATH
+  remote: ./custom/ci
+  specs:
+    pnx/ci (0.0.1)
+
 DEPENDENCIES
   mjhas/postfix (>= 0)
   nickschuch/docker (>= 0)
+  pnx/ci (>= 0)
   puppetlabs/apt (>= 0)
   puppetlabs/ntp (>= 0)
   rtyler/jenkins (>= 0)

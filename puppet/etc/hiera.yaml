@@ -3,8 +3,8 @@
   - yaml
 
 :hierarchy:
-  - "type/%{::jenkins_role}"
   - common
+  - "type/%{::jenkins_role}"
 
 :yaml:
   :datadir: ./etc/hieradb
