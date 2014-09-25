@@ -15,7 +15,7 @@ Install the required gems with bundler (http://bundler.io/v1.6/bundle_install.ht
 bundle install --path vendor/bundle
 ```
 
-The above will give you capistrano for deployment, otherwise bundle install is also run on the vagrant host during provision.
+The above will give you Capistrano for deployment, otherwise bundle install is also run on the vagrant host during provision.
 
 #### Vagrant
 
@@ -45,3 +45,9 @@ To show change and then deploy to the DEV environment run the following commands
 bundle exec cap dev puppet:noop
 bundle exec cap dev puppet:apply
 ```
+
+##### Manual method
+
+If you wish to run some manual steps please see:
+* puppet/provision/base.sh
+* puppet/provision/puppet.sh
