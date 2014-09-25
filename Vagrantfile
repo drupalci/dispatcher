@@ -4,42 +4,22 @@
 # Jenkins based platform.
 #
 
-domain = 'local'
-nodes = [
-  {
-    :hostname  => 'master',
-    :ip        => '192.168.1.52',
-    :provision => "puppet/provision/master.sh",
-  },{
-    :hostname  => 'slave1',
-    :ip        => '192.168.1.53',
-    :provision => "puppet/provision/slave.sh",
-  }
-]
-
 Vagrant.configure("2") do |config|
-  nodes.each do |node|
-    config.vm.define node[:hostname] do |node_config|
-      # Image.
-      node_config.vm.box = 'puppetlabs/centos-6.5-64-puppet'
+  config.vm.box      = 'puppetlabs/centos-6.5-64-puppet'
+  config.vm.hostname = 'jenkins-master.local'
 
-      # Networking.
-      node_config.vm.host_name = node[:hostname] + '.local'
-      node_config.vm.network :private_network, :ip => node[:ip]
+  # Network configured as per bit.ly/1e0ZU1r
+  config.vm.network :private_network, :ip => "192.168.50.10"
 
-      # Resources.
-      memory = node[:ram] ? node[:ram] : 1024;
-      node_config.vm.provider :virtualbox do |vb|
-        vb.customize ["modifyvm", :id, "--name", node[:hostname]]
-        vb.customize ["modifyvm", :id, "--memory", memory.to_s]
-      end
+  # We want to cater for both Unix and Windows.
+  config.vm.synced_folder ".", "/vagrant"
 
-      # Mounts.
-      config.vm.synced_folder ".", "/vagrant"
-
-      # Puppet.
-      node_config.vm.provision "shell", path: "puppet/provision/base.sh"
-      node_config.vm.provision "shell", path: node[:provision]
-    end
+  # Virtualbox provider configuration.
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--cpus",   "1"]
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
+
+  config.vm.provision :shell, :path => "puppet/provision/base.sh"
+  config.vm.provision :shell, :path => "puppet/provision/puppet.sh"
 end

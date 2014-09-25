@@ -1,3 +1,0 @@
-# Classes and configuration for slave hosts.
-classes:
-  - ci::slave

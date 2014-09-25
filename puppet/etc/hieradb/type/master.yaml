@@ -1,3 +1,0 @@
-# Classes and configuration for master hosts.
-classes:
-  - ci::master

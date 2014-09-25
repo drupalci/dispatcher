@@ -29,12 +29,12 @@ namespace :puppet do
 
   # This will show the changes that will be applied.
   task :noop do
-    run "cd #{tmp_dir}/puppet && bundle exec sudo puppet apply --noop --modulepath ./modules --hiera_config ./etc/hiera.yaml site.pp"
+    run "cd #{tmp_dir}/puppet && bundle exec sudo puppet apply --noop --modulepath ./modules site.pp"
   end
 
   # Apply the changes.
   task :apply do
-    run "cd #{tmp_dir}/puppet && bundle exec sudo puppet apply --modulepath ./modules --hiera_config ./etc/hiera.yaml site.pp"
+    run "cd #{tmp_dir}/puppet && bundle exec sudo puppet apply --modulepath ./modules site.pp"
   end
 
 end

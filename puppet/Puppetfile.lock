@@ -2,6 +2,8 @@ FORGE
   remote: http://forge.puppetlabs.com
   specs:
     darin/zypprepo (1.0.1)
+    puppetlabs/apt (1.6.0)
+      puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/java (1.1.1)
       puppetlabs/stdlib (>= 0.1.6)
     puppetlabs/stdlib (4.3.2)
@@ -17,74 +19,6 @@ GIT
       puppetlabs/java (>= 1.0.1)
       puppetlabs/stdlib (>= 2.0.0)
 
-GIT
-  remote: git://github.com/mjhas/postfix.git
-  ref: 0.0.5
-  sha: 6789dd04182bdc91790b043f7b116b598fabc5e6
-  specs:
-    mjhas/postfix (0.0.5)
-
-GIT
-  remote: git://github.com/nickschuch/garethr-docker.git
-  ref: master
-  sha: 41a22bb44e3dcc28903fc8d56d7b1cd86e54ab65
-  specs:
-    nickschuch/docker (0.13.0)
-      puppetlabs/apt (>= 1.1.0)
-      puppetlabs/stdlib (>= 4.1.0)
-      stahnma/epel (>= 0.0.6)
-
-GIT
-  remote: git://github.com/puppetlabs/puppetlabs-apt.git
-  ref: 1.4.0
-  sha: 924e89289b93db60ef0f16a4e71579fa88e037a6
-  specs:
-    puppetlabs/apt (1.4.0)
-      puppetlabs/stdlib (>= 2.2.1)
-
-GIT
-  remote: git://github.com/puppetlabs/puppetlabs-ntp.git
-  ref: 3.0.2
-  sha: 3e4a537acad35c646b5b39c21053b1be31e6daa3
-  specs:
-    puppetlabs/ntp (3.0.2)
-      puppetlabs/stdlib (>= 0.1.6)
-
-GIT
-  remote: git://github.com/saz/puppet-locales.git
-  ref: v2.1.0
-  sha: 91f12579ccaad622bffc712842afac18628cf5a6
-  specs:
-    saz/locales (2.1.0)
-
-GIT
-  remote: git://github.com/saz/puppet-timezone.git
-  ref: v3.0.1
-  sha: ed8d583b87dc51ef3aac44e10efdc9899a18758c
-  specs:
-    saz/timezone (3.0.1)
-      puppetlabs/stdlib (>= 2.3.0)
-
-GIT
-  remote: git://github.com/stahnma/puppet-module-epel.git
-  ref: 0.1.0
-  sha: 5902e8d77df713fe85468c7b082a7f9798daa40a
-  specs:
-    stahnma/epel (0.1.0)
-
-PATH
-  remote: ./custom/ci
-  specs:
-    pnx/ci (0.0.1)
-
 DEPENDENCIES
-  mjhas/postfix (>= 0)
-  nickschuch/docker (>= 0)
-  pnx/ci (>= 0)
-  puppetlabs/apt (>= 0)
-  puppetlabs/ntp (>= 0)
   rtyler/jenkins (>= 0)
-  saz/locales (>= 0)
-  saz/timezone (>= 0)
-  stahnma/epel (>= 0)
 
