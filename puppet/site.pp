@@ -18,6 +18,8 @@ node 'default' {
     'ssh-credentials',
     'build-token-root',
     'ws-cleanup',
+    'ec2',
+    'node-iterator-api ',
   ]: }
 
 }

@@ -48,6 +48,6 @@ bundle exec cap dev puppet:apply
 
 ##### Manual method
 
-If you wish to run some manual steps please see:
+If you wish to run some manual steps please see for a example of the commands you can run:
 * puppet/provision/base.sh
 * puppet/provision/puppet.sh
