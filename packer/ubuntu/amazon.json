@@ -16,7 +16,7 @@
     {
       "type": "amazon-ebs",
       "region": "ap-southeast-2",
-      "source_ami": "ami-fddabdc7",
+      "source_ami": "ami-95d7b4af",
       "instance_type": "m3.medium",
       "ssh_username": "ubuntu",
       "ami_name": "DrupalCI slave {{timestamp}}"
