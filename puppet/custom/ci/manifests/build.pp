@@ -48,11 +48,17 @@ define ci::build (
   $script_output = template($script)
   file { "${jobs_dir}/${title}":
     ensure  => 'directory',
+    owner   => 'jenkins',
+    group   => 'jenkins',
+    mode    => '0644',
     require => Package['jenkins'],
   }
   file { "${jobs_dir}/${title}/config.xml":
     content => template($config),
     require => File["${jobs_dir}/${title}"],
+    owner   => 'jenkins',
+    group   => 'jenkins',
+    mode    => '0644',
     notify  => Service['jenkins'],
   }
 
