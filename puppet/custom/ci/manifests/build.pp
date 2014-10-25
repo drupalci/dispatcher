@@ -53,6 +53,7 @@ define ci::build (
   file { "${jobs_dir}/${title}/config.xml":
     content => template($config),
     require => File["${jobs_dir}/${title}"],
+    notify  => Service['jenkins'],
   }
 
 }
