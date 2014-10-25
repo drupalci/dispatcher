@@ -1,2 +1,3 @@
 # Development cluster.
-role :app, "dispatcher.dev.drupalci.org", "testbot-slave.drupal.org"
+set  :gateway, "root@140.211.169.76"
+role :app,     "10.83.0.5"

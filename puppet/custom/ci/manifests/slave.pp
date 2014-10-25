@@ -1,4 +1,4 @@
-# The Jenkins master.
+# The Jenkins slave.
 
 class ci::master {
 
