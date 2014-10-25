@@ -26,7 +26,10 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+<% if @auth_token -%>
+  <authToken><% if @token -%></authToken>
   <triggers/>
+<% end -%>
   <concurrentBuild>true</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>

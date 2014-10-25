@@ -4,6 +4,7 @@
 #
 #   display_name - A human readable name.
 #   description  - A human readable description about the build.
+#   auth_token   - Enables a token. This token is taken from the FACTER_token system variable.
 #   parameters   - Parameters that can be passed to the build.
 #   config       - The build configruation in XML format.
 #   script       - Ability to override the build script on a per build basis.
@@ -21,6 +22,7 @@ define ci::build (
   # Metadata.
   $display_name = undef,
   $description  = undef,
+  $auth_token   = false,
 
   # Parameters.
   $parameters   = [],
