@@ -15,7 +15,7 @@ Install the required gems with bundler (http://bundler.io/v1.6/bundle_install.ht
 $ bundle install --path vendor/bundle
 ```
 
-The above will give you capistrano for deployment, otherwise bundle install is also run on the vagrant host during provision.
+The above will give you Capistrano for deployment, otherwise bundle install is also run on the vagrant host during provision.
 
 #### Vagrant (1.6.3)
 
@@ -54,4 +54,28 @@ To show change and then deploy to the DEV environment run the following commands
 ```
 $ bundle exec cap dev puppet:noop
 $ bundle exec cap dev puppet:apply
+```
+
+##### Manual method
+
+If you wish to run some manual steps please see for a example of the commands you can run:
+* puppet/provision/base.sh
+* puppet/provision/puppet.sh
+
+### Packer
+
+Packer is an amazing tool for building prepackaged images. Currently we are only building an AWS image.
+
+#### Installation
+
+http://www.packer.io/docs/installation.html
+
+#### Usage
+
+Images can be built via the following commands:
+
+```
+$ export AWS_ACCESS_KEY='Super secret access key'
+$ export AWS_SECRET_KEY='Super secret secret key'
+$ packer build packer/ubuntu/amazon.json
 ```
