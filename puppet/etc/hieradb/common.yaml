@@ -1,0 +1,16 @@
+# The classes we our common hosts will use.
+classes:
+  - epel
+  - ci::master
+
+# These are Jenkins build declarations.
+builds:
+  test:
+    display_name: 'Test'
+    description:  'Standard test executor.'
+    script:       'ci/jobs/test.sh.erb'
+    parameters:
+      - { name: 'repository', description: 'The git repository to checkout.',        default: '' }
+      - { name: 'branch',     description: 'The branch of checkout.',                default: 'master' }
+      - { name: 'patch',      description: 'A patch to be applied to the checkout.', default: '' }
+    auth_token:   true

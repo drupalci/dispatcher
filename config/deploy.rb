@@ -3,8 +3,9 @@ set :user, "cloud-user"
 set :runner, "cloud-user"
 set :port, 22
 set :tmp_dir, "/tmp/drupalci-jenkins"
-set :repository, "git@github.com:nickschuch/drupalci-jenkins.git"
+set :repository, "https://github.com/nickschuch/drupalci-jenkins.git"
 ssh_options[:forward_agent] = true
+default_run_options[:pty] = true
 
 # Register hooks.
 before "puppet:prepare", "puppet:cleanup"
@@ -19,7 +20,8 @@ namespace :puppet do
   # Prepares the puppet repository via librarian puppet.
   task :prepare do
     run "git clone --quiet #{repository} #{tmp_dir}"
-    run "cd #{tmp_dir} && bundle install --path vendor/bundle > /dev/null"
+    # We throw the gems into a temp directory so we can reuse on the next deploy.
+    run "cd #{tmp_dir} && bundle install --path /tmp/bundle > /dev/null"
     run "cd #{tmp_dir}/puppet && bundle exec librarian-puppet install"
   end
 

@@ -22,4 +22,10 @@ node 'default' {
     'node-iterator-api ',
   ]: }
 
+  # Builds.
+  $builds = hiera_hash('builds', false)
+  if $builds {
+    create_resources(ci::build, $builds)
+  }
+
 }

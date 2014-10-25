@@ -1,0 +1,21 @@
+#!/bin/bash
+
+TMP_DIR='/tmp/build'
+
+# Clean up the workspace prior to running the build.
+sudo rm -fR $TMP_DIR
+mkdir $TMP_DIR
+git clone --depth 1 --branch ${branch} ${repository} $TMP_DIR
+cd $TMP_DIR
+
+# Kill all previous containers.
+docker kill $(docker ps -a -q) > /dev/null
+docker rm $(docker ps -a -q) > /dev/null
+
+# Apply the patch.
+if [ ! -z "${patch}" ]; then
+  curl ${patch} | git apply
+fi
+
+# Compile and run.
+/usr/local/bin/drupalci travis --privileged > run; sh run
