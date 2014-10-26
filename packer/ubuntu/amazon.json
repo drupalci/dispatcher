@@ -1,6 +1,12 @@
 {
-  "provisioners": [
-    {
+  "variables": {
+    "jenkins_user": "{{env `JENKINS_USER`}}"
+  },
+  "provisioners": [{
+      "type": "file",
+      "source": "./packer/ubuntu/files",
+      "destination": "/tmp/jenkins"
+    },{
       "type": "shell",
       "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
@@ -9,6 +15,12 @@
         "packer/ubuntu/scripts/command.sh",
         "packer/ubuntu/scripts/docker.sh",
         "packer/ubuntu/scripts/containers.sh"
+      ]
+    },{
+      "type": "shell",
+      "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "inline": [
+        "sed -i 's/JENKINS_USER/{{user `jenkins_user`}}/g' /usr/bin/userdata"
       ]
     }
   ],

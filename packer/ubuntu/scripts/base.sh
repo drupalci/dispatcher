@@ -6,5 +6,9 @@
 
 # Packages.
 apt-get -y update
-apt-get -y install curl wget git vim make php-pear php5-dev php5-curl default-jre
+apt-get -y install curl wget git vim make php-pear php5-dev php5-curl default-jre python
 apt-get clean
+
+# Composer.
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer && chmod +x /usr/local/bin/composer
