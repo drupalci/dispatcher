@@ -3,7 +3,7 @@
 # Script: base.sh
 # Author: Nick Schuch
 
-DIR='/vagrant/puppet'
+DIR=`pwd`
 
 # Helper function to install packages.
 yumInstall() {
@@ -26,5 +26,5 @@ yumInstall vim-common
 gemInstall bundler
 
 # Run librarian-puppet to pull down contrib modules.
-cd $DIR && bundle install
+cd $DIR && bundle install --path vendor/bundle
 cd $DIR && bundle exec librarian-puppet install

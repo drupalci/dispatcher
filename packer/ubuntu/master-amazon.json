@@ -1,0 +1,27 @@
+{
+  "variables": {
+    "jenkins_user": "{{env `JENKINS_USER`}}"
+  },
+  "provisioners": [{
+      "type": "file",
+      "source": ".",
+      "destination": "/tmp/jenkins"
+    },{
+      "type": "shell",
+      "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "scripts": [
+        "packer/ubuntu/scripts/puppet.sh"
+      ]
+    }
+  ],
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "ap-southeast-2",
+      "source_ami": "ami-95d7b4af",
+      "instance_type": "m3.medium",
+      "ssh_username": "ubuntu",
+      "ami_name": "DrupalCI master {{timestamp}}"
+    }
+  ]
+}

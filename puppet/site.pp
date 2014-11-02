@@ -28,4 +28,6 @@ node 'default' {
     create_resources(ci::build, $builds)
   }
 
+  Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
+
 }

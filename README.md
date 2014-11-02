@@ -81,8 +81,18 @@ export JENKINS_USER=admin:admin
 
 Images can be built via the following commands:
 
+**Master**
+
 ```
 $ export AWS_ACCESS_KEY='Super secret access key'
 $ export AWS_SECRET_KEY='Super secret secret key'
-$ packer build packer/ubuntu/amazon.json
+$ packer build packer/ubuntu/master-amazon.json
+```
+
+**Slave**
+
+```
+$ export AWS_ACCESS_KEY='Super secret access key'
+$ export AWS_SECRET_KEY='Super secret secret key'
+$ packer build packer/ubuntu/slave-amazon.json
 ```

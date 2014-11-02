@@ -4,6 +4,7 @@ set :runner, "cloud-user"
 set :port, 22
 set :tmp_dir, "/tmp/drupalci-jenkins"
 set :repository, "https://github.com/nickschuch/drupalci-jenkins.git"
+set :use_sudo, false
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 
