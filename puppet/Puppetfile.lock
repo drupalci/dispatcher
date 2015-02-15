@@ -1,24 +1,30 @@
 FORGE
-  remote: http://forge.puppetlabs.com
+  remote: https://forgeapi.puppetlabs.com
   specs:
-    darin/zypprepo (1.0.1)
-    puppetlabs/apt (1.6.0)
-      puppetlabs/stdlib (>= 2.2.1)
-    puppetlabs/java (1.1.1)
-      puppetlabs/stdlib (>= 0.1.6)
-    puppetlabs/stdlib (4.3.2)
+    darin-zypprepo (1.0.2)
+    puppetlabs-apt (1.7.0)
+      puppetlabs-stdlib (>= 2.2.1)
+    puppetlabs-java (1.3.0)
+      puppetlabs-stdlib (>= 2.4.0)
+    puppetlabs-stdlib (4.5.1)
 
 GIT
   remote: git://github.com/jenkinsci/puppet-jenkins.git
   ref: v1.1.0
   sha: bd615225f7d054d8dad8d9173457c9c5c188c331
   specs:
-    rtyler/jenkins (1.1.0)
-      darin/zypprepo (>= 1.0.1)
-      puppetlabs/apt (>= 0.0.3)
-      puppetlabs/java (>= 1.0.1)
-      puppetlabs/stdlib (>= 2.0.0)
+    rtyler-jenkins (1.1.0)
+      darin-zypprepo (>= 1.0.1)
+      puppetlabs-apt (>= 0.0.3)
+      puppetlabs-java (>= 1.0.1)
+      puppetlabs-stdlib (>= 2.0.0)
+
+PATH
+  remote: custom/ci
+  specs:
+    drupalci-ci (0.0.1)
 
 DEPENDENCIES
-  rtyler/jenkins (>= 0)
+  drupalci-ci (>= 0)
+  rtyler-jenkins (>= 0)
 

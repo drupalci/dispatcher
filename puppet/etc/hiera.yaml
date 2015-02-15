@@ -3,7 +3,7 @@
   - yaml
 
 :hierarchy:
-  - common
+  - builds
 
 :yaml:
   :datadir: ./etc/hieradb

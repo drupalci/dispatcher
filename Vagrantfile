@@ -5,7 +5,7 @@
 #
 
 Vagrant.configure("2") do |config|
-  config.vm.box      = 'puppetlabs/centos-6.5-64-puppet'
+  config.vm.box      = 'ubuntu/trusty64'
   config.vm.hostname = 'jenkins-master.local'
 
   # Network configured as per bit.ly/1e0ZU1r
