@@ -25,6 +25,7 @@ yumInstall git-all
 yumInstall vim-common
 gemInstall bundler
 
-# Run librarian-puppet to pull down contrib modules.
+# Install the required packages and provision.
 cd $DIR && bundle install --path vendor/bundle
 cd $DIR && bundle exec librarian-puppet install
+cd $DIR && sudo -E bundle exec puppet apply --modulepath $DIR/modules $DIR/site.pp

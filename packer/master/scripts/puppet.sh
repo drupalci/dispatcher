@@ -6,5 +6,4 @@
 
 DIR='/tmp/puppet'
 
-cd $DIR && sh base.sh
-cd $DIR && sh puppet.sh
+cd $DIR && sh scripts/provision.sh

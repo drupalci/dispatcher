@@ -1,0 +1,37 @@
+{
+  "variables": {
+    "jenkins_user": "{{env `JENKINS_USER`}}"
+  },
+  "provisioners": [{
+      "type":        "file",
+      "source":      "./packer/slave/files",
+      "destination": "/tmp/jenkins"
+    },{
+      "type":            "shell",
+      "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "scripts": [
+        "packer/slave/scripts/base.sh",
+        "packer/slave/scripts/ami-spot.sh",
+        "packer/slave/scripts/command.sh",
+        "packer/slave/scripts/docker.sh",
+        "packer/slave/scripts/containers.sh"
+      ]
+    },{
+      "type":            "shell",
+      "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "inline": [
+        "sed -i 's/JENKINS_USER/{{user `jenkins_user`}}/g' /usr/bin/userdata"
+      ]
+    }
+  ],
+  "builders": [
+    {
+      "type":          "amazon-ebs",
+      "region":        "ap-southeast-2",
+      "source_ami":    "ami-95d7b4af",
+      "instance_type": "m3.medium",
+      "ssh_username":  "ubuntu",
+      "ami_name":      "DrupalCI slave {{timestamp}}"
+    }
+  ]
+}

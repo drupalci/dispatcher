@@ -5,5 +5,4 @@
 
 DIR='/vagrant/puppet'
 
-cd $DIR && sh base.sh
 cd $DIR && sh puppet.sh
