@@ -19,7 +19,7 @@ node 'default' {
     'build-token-root',
     'ws-cleanup',
     'ec2',
-    'node-iterator-api ',
+    'node-iterator-api',
   ]: }
 
   # Builds.

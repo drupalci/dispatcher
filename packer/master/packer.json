@@ -2,8 +2,8 @@
   "provisioners": [{
       "type":        "file",
 
-      "source":      ".",
-      "destination": "/tmp/jenkins"
+      "source":      "./puppet",
+      "destination": "/tmp/puppet"
     },{
       "type":            "shell",
       "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
