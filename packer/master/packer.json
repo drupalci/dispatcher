@@ -1,7 +1,4 @@
 {
-  "variables": {
-    "jenkins_user": "{{env `JENKINS_USER`}}"
-  },
   "provisioners": [{
       "type":        "file",
 
@@ -12,7 +9,7 @@
       "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
         "packer/master/scripts/base.sh",
-        "packer/master/scripts/provision.sh"
+        "packer/master/scripts/puppet.sh"
       ]
     }
   ],
