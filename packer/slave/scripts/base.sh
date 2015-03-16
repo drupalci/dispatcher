@@ -6,7 +6,7 @@
 
 # Packages.
 apt-get -y update
-apt-get -y install curl wget git vim make php-pear php5-dev php5-curl default-jre python
+apt-get -y install openjdk-7-jre curl wget git vim make php-pear php5-dev php5-curl python
 apt-get clean
 
 # Composer.
