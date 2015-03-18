@@ -6,7 +6,8 @@
       "packer/slave/scripts/base.sh",
       "packer/slave/scripts/command.sh",
       "packer/slave/scripts/docker.sh",
-      "packer/slave/scripts/containers.sh"
+      "packer/slave/scripts/containers.sh",
+      "packer/slave/scripts/results.sh"
     ]
   }],
   "builders": [{
