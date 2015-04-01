@@ -1,6 +1,7 @@
 {
   "variables": {
-    "jenkins_user": "{{env `JENKINS_USER`}}"
+    "jenkins_user": "{{env `JENKINS_USER`}}",
+    "source_ami": "ami-95d7b4af"
   },
   "provisioners": [{
       "type":        "file",

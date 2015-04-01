@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "source_ami": "ami-95d7b4af"
+  },
   "provisioners": [{
       "type":        "file",
 
