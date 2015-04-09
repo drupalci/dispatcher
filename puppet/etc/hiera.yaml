@@ -1,9 +1,0 @@
----
-:backends:
-  - yaml
-
-:hierarchy:
-  - builds
-
-:yaml:
-  :datadir: ./etc/hieradb
