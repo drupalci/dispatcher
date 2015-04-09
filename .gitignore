@@ -1,5 +1,0 @@
-.vagrant
-puppet/modules
-puppet/.tmp
-vendor
-.bundle
